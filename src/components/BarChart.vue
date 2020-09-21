@@ -16,7 +16,7 @@
             class="domain"
             stroke="currentColor"
             :d="`M0.5,6V0.5H${width}.5V6`"
-          ></path>
+          />
           <g
             class="tick"
             opacity="1"
@@ -27,7 +27,7 @@
             :key="index"
             :transform="`translate(${bar.x + bar.width / 2}, 0)`"
           >
-            <line stroke="currentColor" y2="6"></line>
+            <line stroke="currentColor" y2="6" />
             <text fill="currentColor" y="9" dy="0.71em">{{ bar.xLabel }}</text>
           </g>
         </g>
@@ -41,7 +41,7 @@
             class="domain"
             stroke="currentColor"
             :d="`M0.5,${height}.5H0.5V0.5H-6`"
-          ></path>
+          />
           <g
             class="tick"
             opacity="1"
@@ -52,7 +52,7 @@
             :key="index"
             :transform="`translate(0, ${y(tick) + 0.5})`"
           >
-            <line stroke="currentColor" x2="-6"></line>
+            <line stroke="currentColor" x2="-6" />
             <text fill="currentColor" x="-9" dy="0.32em">{{ tick }}</text>
           </g>
         </g>
@@ -65,7 +65,16 @@
             :width="bar.width"
             :x="bar.x"
             :y="bar.y"
-          ></rect>
+          />
+          <text
+            v-for="(bar, index) in bars"
+            :key="index + bar.xLabel"
+            fill="currentColor"
+            :x="bar.x + 3"
+            :y="bar.y - 3"
+          >
+            {{ bar.age }}
+          </text>
         </g>
       </g>
     </svg>
@@ -74,8 +83,14 @@
 
 <script>
 import { scaleLinear, scaleBand } from "d3-scale";
+import moment from "moment";
 
 export default {
+  data() {
+    return {
+      moment,
+    };
+  },
   name: "BarChart",
   props: {
     height: { default: 200 },
@@ -107,7 +122,8 @@ export default {
     bars() {
       let bars = this.dataSet.map((d) => {
         return {
-          xLabel: d.name,
+          xLabel: this.moment(new Date(d.name)).format("LL"),
+          age: d.age,
           x: this.x(d.name),
           y: this.y(d.age),
           width: this.x.bandwidth(),
@@ -117,6 +133,7 @@ export default {
 
       return bars;
     },
+    // xTicks() {},
   },
 };
 </script>

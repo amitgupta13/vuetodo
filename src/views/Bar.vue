@@ -20,15 +20,34 @@ export default {
   data() {
     return {
       data: [
-        { name: "Bob", age: 32 },
-        { name: "Robin", age: 24 },
-        { name: "Mark", age: 22 },
-        { name: "Joe", age: 29 },
-        { name: "Eve", age: 38 },
-        { name: "Karen", age: 21 },
-        { name: "Kirsty", age: 25 },
-        { name: "Chris", age: 30 },
-        { name: "Butcher", age: 32 },
+        {
+          name: "2020-06-04",
+          age: 4,
+        },
+        {
+          name: "2020-06-05",
+          age: 2,
+        },
+        {
+          name: "2020-06-06",
+          age: 2,
+        },
+        {
+          name: "2020-06-07",
+          age: 2,
+        },
+        {
+          name: "2020-06-08",
+          age: 6,
+        },
+        {
+          name: "2020-06-09",
+          age: 6,
+        },
+        {
+          name: "2020-06-10",
+          age: 6,
+        },
       ],
     };
   },
@@ -38,15 +57,34 @@ export default {
   methods: {
     changeData() {
       this.data = [
-        { name: "Bob", age: 42 },
-        { name: "Robin", age: 64 },
-        { name: "Mark", age: 25 },
-        { name: "Joe", age: 19 },
-        { name: "Eve", age: 38 },
-        { name: "Karen", age: 21 },
-        { name: "Kirsty", age: 59 },
-        { name: "Chris", age: 43 },
-        { name: "Butcher", age: 22 },
+        {
+          name: "2020-06-04",
+          age: 4,
+        },
+        {
+          name: "2020-06-05",
+          age: 2,
+        },
+        {
+          name: "2020-06-06",
+          age: 2,
+        },
+        {
+          name: "2020-06-07",
+          age: 2,
+        },
+        {
+          name: "2020-06-08",
+          age: 6,
+        },
+        {
+          name: "2020-06-09",
+          age: 6,
+        },
+        {
+          name: "2020-06-10",
+          age: 6,
+        },
       ];
     },
   },
